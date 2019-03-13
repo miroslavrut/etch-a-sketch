@@ -23,7 +23,7 @@
     }
     const gridDiv = document.querySelectorAll('container');
 
-    function Hover(){
+    function hover(){
         let gridBoxes = document.querySelectorAll("#container > div");
         gridBoxes.forEach((div) => {
             div.addEventListener('mouseover',function(e){
@@ -32,7 +32,7 @@
         });
     }
 
-    function Hover2(){
+    function mobHover(){
         let gridBoxes = document.querySelectorAll("#container > div");
         gridBoxes.forEach((div) => {
             div.addEventListener('toucstart',function(e){
@@ -46,5 +46,5 @@
     
 
     createGrid();
-    Hover();
-    
+    hover();
+    mobHover()
