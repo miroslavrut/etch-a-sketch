@@ -40,5 +40,5 @@ clearBtn.addEventListener('click', () => {
             div.parentNode.removeChild(div);
         })
     }
-
+    
     createGrid(16);

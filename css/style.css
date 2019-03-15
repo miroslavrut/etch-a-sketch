@@ -9,10 +9,13 @@ html,body {
     border: 20px solid red;
 }
 
+
+
 #container > div {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;
-    border: 1px solid rgb(196, 186, 186);
+    background: white;
+    box-shadow:0px 0 0px 1px rgba(0, 0, 0, 0.75), inset 0px 0 0 1px rgba(0, 0, 0, 0.75)
 }
 
