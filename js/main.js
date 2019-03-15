@@ -1,50 +1,44 @@
-    let boxSize= 37;
-    
-    const gridBox = document.querySelector("#container");
-    
-    let gridDivDim = 35 / boxSize;
+const container = document.querySelector("#container");
+container.style.display = "grid";
 
-    gridBox.style.display = "grid";
-    gridBox.style.gridTemplate = `repeat(${boxSize},${gridDivDim}rem)
-     / repeat(${boxSize},${gridDivDim}rem)`;
-    gridBox.style.justifyContent = 'center';
-    
- 
-    
-    function createGrid(){
-        for(let i = 0; i != boxSize * boxSize; ++i) {
-        const gridDiv = document.createElement("div");
-        gridDiv.style.width = `${gridDivDim * 0.998}rem`;
-        gridDiv.style.height = `${gridDivDim * 0.998}rem`;
-        gridDiv.style.border = `${gridDivDim * 0.002}rem solid #000000b6`;
-        gridDiv.classList.add('grid-div');
-        gridBox.appendChild(gridDiv);
-        }
+const newBtn = document.querySelector("#new-grid");
+const clearBtn = document.querySelector("#clear");
+
+function createGrid(gridSize) {
+    container.style.gridTemplate = `repeat(${gridSize},1fr) / repeat(${gridSize},1fr)`;
+    for(let i = 0; i < gridSize * gridSize; ++i){
+        const div = document.createElement("div");
+        container.appendChild(div);
     }
-    const gridDiv = document.querySelectorAll('container');
-
-    function hover(){
-        let gridBoxes = document.querySelectorAll("#container > div");
-        gridBoxes.forEach((div) => {
-            div.addEventListener('mouseover',function(e){
-                e.target.setAttribute('style','background: black')
-            })
-        });
-    }
-
-    function mobHover(){
-        let gridBoxes = document.querySelectorAll("#container > div");
-        gridBoxes.forEach((div) => {
-            div.addEventListener('toucstart',function(e){
-                e.target.setAttribute('style','background: black')
-            })
-        });
-    }
-    const body = document.querySelector("body")
-    const clearBtn = document.createElement("button");
-    
-    
-
-    createGrid();
     hover();
-    mobHover()
+}
+
+newBtn.addEventListener('click', () => {
+    reset();
+    const newSize = prompt("Size: ");
+    createGrid(newSize);
+});
+
+function hover() {
+    const div = document.querySelectorAll("#container  div");
+    div.forEach((div) => {
+        div.addEventListener('mouseover', () => {
+            div.style.background = "black";
+        });
+    });
+}
+clearBtn.addEventListener('click', () => {
+    const div = document.querySelectorAll("#container > div");
+    div.forEach((div) => {
+            div.style.background = "white";
+        });
+    });
+
+    function reset() {
+        const div = document.querySelectorAll("#container > div");
+        div.forEach((div) => {
+            div.parentNode.removeChild(div);
+        })
+    }
+
+    createGrid(16);
