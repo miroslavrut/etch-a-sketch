@@ -33,6 +33,22 @@ function hover() {
     });
 }
 
+function rgbHover() {
+    const div = document.querySelectorAll("#container  div");
+    div.forEach((div) => {
+        div.addEventListener('mouseover', () => {
+            div.style.background = rgbColor();
+        });
+    });
+}
+
+function rgbColor() {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return('rgb(' + r + ',' + g + ',' + b + ')');
+}
+
 newBtn.addEventListener('click', () => {
     reset();
     const newSize = prompt("Size: ");
@@ -46,6 +62,8 @@ clearBtn.addEventListener('click', () => {
         });
 });
 
+rgbBtn.addEventListener('click', rgbHover);
+
 container.addEventListener('mouseenter',() => {
         container.style.borderColor = "rgba(235, 75, 26, 0.908)";
 });
@@ -53,5 +71,6 @@ container.addEventListener('mouseenter',() => {
 container.addEventListener('mouseleave',() => {
     container.style.borderColor = "rgba(235, 75, 26, 0.608)";
 });
+
 
 createGrid(16);
