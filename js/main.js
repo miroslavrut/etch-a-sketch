@@ -1,8 +1,12 @@
-const container = document.querySelector("#container");
+const container = document.createElement("div");
 container.style.display = "grid";
+container.setAttribute("id","container");
+const main = document.querySelector("#main");
+main.appendChild(container);
 
 const newBtn = document.querySelector("#new-grid");
 const clearBtn = document.querySelector("#clear");
+const rgbBtn = document.querySelector("#rgb");
 
 function createGrid(gridSize) {
     container.style.gridTemplate = `repeat(${gridSize},1fr) / repeat(${gridSize},1fr)`;
@@ -13,11 +17,12 @@ function createGrid(gridSize) {
     hover();
 }
 
-newBtn.addEventListener('click', () => {
-    reset();
-    const newSize = prompt("Size: ");
-    createGrid(newSize);
-});
+function reset() {
+    const div = document.querySelectorAll("#container > div");
+    div.forEach((div) => {
+        div.parentNode.removeChild(div);
+    })
+}
 
 function hover() {
     const div = document.querySelectorAll("#container  div");
@@ -27,18 +32,26 @@ function hover() {
         });
     });
 }
+
+newBtn.addEventListener('click', () => {
+    reset();
+    const newSize = prompt("Size: ");
+    createGrid(newSize);
+});
+
 clearBtn.addEventListener('click', () => {
     const div = document.querySelectorAll("#container > div");
     div.forEach((div) => {
             div.style.background = "white";
         });
-    });
+});
 
-    function reset() {
-        const div = document.querySelectorAll("#container > div");
-        div.forEach((div) => {
-            div.parentNode.removeChild(div);
-        })
-    }
-    
-    createGrid(16);
+container.addEventListener('mouseenter',() => {
+        container.style.borderColor = "rgba(235, 75, 26, 0.908)";
+});
+
+container.addEventListener('mouseleave',() => {
+    container.style.borderColor = "rgba(235, 75, 26, 0.608)";
+});
+
+createGrid(16);
