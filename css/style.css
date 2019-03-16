@@ -9,6 +9,22 @@ html,body {
     margin-top: 5vh;
 }
 
+button {
+    background-color: rgb(30, 142, 161);
+    color: white;
+    padding: 1.5vh;
+    margin: 0 0.2vh;
+    font-weight: bolder;
+    transition: 0.2s ease-in-out;
+    border-radius: 20%;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    outline-color: rgb(8, 61, 122)
+}
+
 #container {
     width: 600px;
     height: 600px;
@@ -20,7 +36,7 @@ html,body {
 #main {
     display: flex;
     justify-content: center;
-    margin-top: 7vh;
+    margin-top: 5vh;
 }
 
 #container > div {

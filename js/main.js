@@ -52,7 +52,7 @@ function rgbColor() {
 
 newBtn.addEventListener('click', () => {
     reset();
-    const newSize = prompt("Size: ");
+    const newSize = prompt("Size: ", "16");
     createGrid(newSize);
 });
 
