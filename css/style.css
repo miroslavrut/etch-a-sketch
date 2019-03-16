@@ -17,12 +17,13 @@ button {
     font-weight: bolder;
     transition: 0.2s ease-in-out;
     border-radius: 20%;
+    outline: none;
 }
 
 button:hover {
     background-color: white;
     color: black;
-    outline-color: rgb(8, 61, 122)
+    
 }
 
 #container {
