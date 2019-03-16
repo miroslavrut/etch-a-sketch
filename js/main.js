@@ -52,7 +52,8 @@ function rgbColor() {
 
 newBtn.addEventListener('click', () => {
     reset();
-    const newSize = prompt("Size: ", "16");
+    const userSize = +(prompt("Size: ", "16"));
+    const newSize = userSize > 100 ? 100 : userSize;
     createGrid(newSize);
 });
 
