@@ -3,17 +3,24 @@ html,body {
     padding: 0;
 }
 
+#buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
 #container {
     width: 600px;
     height: 600px;
-    border: 20px solid rgba(235, 75, 26, 0.608);
+    border: 25px solid rgba(235, 75, 26, 0.608);
+    border-radius: 2%;
     transition: 0.2s ease-in-out;
 }
 
 #main {
     display: flex;
     justify-content: center;
-    margin-top: 5vh;
+    margin-top: 7vh;
 }
 
 #container > div {

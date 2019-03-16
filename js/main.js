@@ -7,6 +7,7 @@ main.appendChild(container);
 const newBtn = document.querySelector("#new-grid");
 const clearBtn = document.querySelector("#clear");
 const rgbBtn = document.querySelector("#rgb");
+const blackBtn = document.querySelector("#black");
 
 function createGrid(gridSize) {
     container.style.gridTemplate = `repeat(${gridSize},1fr) / repeat(${gridSize},1fr)`;
@@ -64,6 +65,8 @@ clearBtn.addEventListener('click', () => {
 
 rgbBtn.addEventListener('click', rgbHover);
 
+blackBtn.addEventListener('click', hover);
+
 container.addEventListener('mouseenter',() => {
         container.style.borderColor = "rgba(235, 75, 26, 0.908)";
 });
@@ -71,6 +74,5 @@ container.addEventListener('mouseenter',() => {
 container.addEventListener('mouseleave',() => {
     container.style.borderColor = "rgba(235, 75, 26, 0.608)";
 });
-
 
 createGrid(16);
